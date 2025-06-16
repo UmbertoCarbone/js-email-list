@@ -1,26 +1,31 @@
+
 const endpoint = 'https://flynn.boolean.careers/exercises/api/random/mail';
 
-
-
-//lista email
+// lista email
 const emailListEl = document.getElementById('emailList');
 
-//button
-const generateButtonEl = document.getElementById('generate-button');
+// button
+const generateButtonEl = document.getElementById('generateBtn');
 
-//ciclo for per generare 10 email in console
-for (let i = 0; i < 10; i++) {
 
-    fetch(endpoint)
-        .then(response => response.json())
-        .then(data => {
-            console.log(data)
-        }).catch(error => {
-            console.error(error)
-        })
+function generateEmails() {
+    emailListEl.innerHTML = '';
 
+    const emails = [];
+
+    for (let i = 0; i < 10; i++) {
+        fetch(endpoint)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+
+
+            })
+            .catch(error => {
+                console.error(error);
+            });
+    }
 }
 
-
-
-
+// collego l'evento al bottone
+generateButtonEl.addEventListener('click', generateEmails);
