@@ -20,8 +20,8 @@ function generateEmails() {
                 console.log(data)
                 /*  corr*/
                 const liEl = document.createElement("li")
-                liEl.append(data)
-                ulEl.appendChild(liEl)
+                emailListEl.append(data.response)
+                ulEl.appendChild(emailListEl)
                 /*  */
             }).catch(error => {
                 console.error(error);
