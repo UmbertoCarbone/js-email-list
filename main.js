@@ -18,14 +18,16 @@ function generateEmails() {
             .then(response => response.json())
             .then(data => {
                 console.log(data)
-
-
-            })
-            .catch(error => {
+                /*  corr*/
+                const liEl = document.createElement("li")
+                liEl.append(data)
+                ulEl.appendChild(liEl)
+                /*  */
+            }).catch(error => {
                 console.error(error);
             });
     }
 }
 
 // collego l'evento al bottone
-generateButtonEl.addEventListener('click', generateEmails);
+generateButtonEl.addEventListener("click", generateEmails);
